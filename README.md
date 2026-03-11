@@ -1,1 +1,57 @@
-☕ Coffee Machine - BUT Informatique (TP4)Ce projet a été réalisé dans le cadre d'une évaluation de Développement Objet en première année de BUT Informatique. L'objectif est de simuler le fonctionnement interne d'une machine à café programmable en C#.🎯 Objectifs PédagogiquesMise en pratique de l'encapsulation (propriétés get et set).Gestion des états internes (stocks d'eau, de café et de sucre).Logique de distribution conditionnelle (vérification des ressources).Calculs dynamiques via des propriétés calculées.🏗️ Structure du ProjetLe projet est articulé autour de trois classes principales :CoffeeMachine : Le cœur du système. Elle gère les stocks, le nom de la machine et la logique de préparation des boissons.Distribution : Représente une boisson servie. Elle calcule automatiquement son coût en fonction des ingrédients utilisés.Program : Point d'entrée de l'application (Main) utilisé pour tester différents scénarios de distribution et de rechargement.🛠️ Fonctionnalités1. Gestion des StocksLa machine permet de recharger indépendamment chaque ressource :ReloadWater(int quantity)ReloadCoffee(int nb)ReloadSugar(int nb)2. Distribution de CaféLa méthode GiveCoffee(bool longCoffee, int sugar) gère deux types de préparations :Café Court : Consomme 1 dose de café et 30ml d'eau.Café Long : Consomme 2 doses de café et 70ml d'eau.Sucre : Quantité variable selon le choix de l'utilisateur.[!IMPORTANT]La distribution ne s'effectue que si les ressources sont suffisantes. Dans le cas contraire, la méthode retourne null.3. Modèle ÉconomiqueLe coût d'une boisson est calculé selon la formule suivante :$$Coût = (0.70 \times café) + (0.01 \times eau) + (0.10 \times sucre)$$La méthode TakeMoney() permet de récolter les gains accumulés et réinitialise la caisse de la machine à zéro.🚀 Exemples de Tests (Program.cs)Le programme de test inclus effectue les actions suivantes :Initialisation d'une machine nommée "K-fé IUT".Remplissage initial des stocks.Simulation de plusieurs commandes (courts, longs, sucrés).Vérification de la limite des stocks via une boucle de distribution intensive.Récupération du chiffre d'affaires.💻 Technologies utiliséesLangage : C# (.NET Core / 8.0)IDE suggéré : Visual Studio 2022 ou VS CodeAuteur : Quentin RemondFormation : BUT Informatique - 1ère Année
+# ☕ Coffee Machine - Projet BUT Informatique
+
+Ce projet a été réalisé dans le cadre d'une évaluation de **Développement Objet** en première année de **BUT Informatique** (TP4). L'objectif est de simuler le fonctionnement interne d'une machine à café programmable en C#.
+
+---
+
+## 🎯 Objectifs du Projet
+Le but de cet exercice était de mettre en pratique les concepts fondamentaux de la Programmation Orientée Objet (POO) :
+* **Encapsulation** : Utilisation de champs privés et de propriétés (`get`/`set`).
+* **Gestion d'état** : Suivi des stocks (eau, café, sucre) et de la caisse.
+* **Logique métier** : Vérification des ressources avant distribution.
+* **Propriétés calculées** : Calcul dynamique du prix d'une boisson.
+
+---
+
+## 🏗️ Structure du Code
+
+Le projet est divisé en trois composants principaux :
+
+### 1. La classe `CoffeeMachine`
+C'est le cœur du système. Elle gère :
+* Le nom et le code d'identification de la machine.
+* Le stock de consommables.
+* La méthode `GiveCoffee` qui vérifie si les ressources sont suffisantes avant de créer une distribution.
+* Le rechargement des ingrédients via les méthodes `Reload`.
+
+### 2. La classe `Distribution`
+Elle représente l'objet "Boisson" généré. Son coût est calculé automatiquement selon la formule suivante :
+$$Coût = (0.70 \times café) + (0.01 \times eau) + (0.10 \times sucre)$$
+
+### 3. La classe `Program`
+Le point d'entrée qui contient les scénarios de test :
+* Initialisation de la machine ("K-fé IUT").
+* Remplissage des réservoirs.
+* Simulations de commandes (cafés courts, longs, sucrés).
+* Test des limites de stocks avec une boucle de distribution.
+
+---
+
+## 🛠️ Fonctionnalités clés
+
+| Action | Description |
+| :--- | :--- |
+| **Distribution** | Gère le type de café (Court/Long) et la dose de sucre. |
+| **Gestion Stocks** | Décrémente l'eau, le café et le sucre à chaque commande réussie. |
+| **Caisse** | Accumule l'argent des ventes. La méthode `TakeMoney()` permet de vider la caisse. |
+| **Sécurité** | Retourne `null` si une ressource vient à manquer, empêchant une distribution incomplète. |
+
+---
+
+## 🚀 Installation et Test
+
+1. Clonez le dépôt ou copiez les fichiers `.cs`.
+2. Ouvrez le projet dans **Visual Studio** ou **VS Code**.
+3. Compilez et lancez le projet :
+   ```bash
+   dotnet run
