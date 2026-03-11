@@ -1,6 +1,6 @@
 # ☕ Coffee Machine - Projet BUT Informatique
 
-Ce projet a été réalisé dans le cadre d'une évaluation de **Développement Objet** en première année de **BUT Informatique** (TP4). L'objectif est de simuler le fonctionnement interne d'une machine à café programmable en C#.
+Ce projet a été réalisé dans le cadre d'une évaluation de **Développement Objet** en première année de **BUT Informatique** (TP4 de Dev Objet). L'objectif est de simuler le fonctionnement interne d'une machine à café programmable en C#.
 
 ---
 
